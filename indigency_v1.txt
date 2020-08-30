@@ -1,0 +1,130 @@
+Title: Indigency "Flowchart"
+Author: Michael Cronin
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://suffolklitlab.org/howto/qna/images/maxheadroom.gif');"></div>
+<h2 style="text-align:center;">Indigency "Flowchart"</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/level/2/#mission_p1">class project</a>. You should not rely on it as a source of legal information!</b></p>
+<p>Answer the following questions to see if you qualify for appointed counsel in [insert state name].</p>
+    
+Q(residency): This is an interview to determine your eligibility for indigent defense in the State of Georgia.
+	Are you currently a resident of the State of Georgia?
+A:Yes
+	Q(1.1):GOTO:felony
+A:No
+	Q(1.2):GOTO:kickout
+
+Q(kickout): You are NOT eligible for indigent defense in Georgia.
+
+Q(felony): Have you been charged with a felony?
+A: Yes
+	Q(3.1):GOTO:felonyfamily
+A: No
+	Q(3.2):GOTO:misdemeanor
+
+Q(misdemeanor): Have you been charged with a misdemeanor?
+A: Yes
+	Q(4.1):GOTO:misdemeanorfamily
+A: No
+	Q(4.2):GOTO:kickout
+
+Q(felonyfamily): How many family members are you in your household?
+A: 1
+	Q(5.1): Do you have a household income of more than $19,140?
+	A: Yes
+		Q(5.1.1):GOTO:kickout
+	A: No
+		Q(5.1.2):GOTO:eligible
+A: 2
+	Q(5.2): Do you have a household income of more than $25,860?
+	A: Yes
+		Q(5.2.1):GOTO:kickout
+	A: No
+		Q(5.2.2):GOTO:eligible
+A: 3
+	Q(5.3): Do you have a household income of more than $32,580?
+	A: Yes
+		Q(5.3.1):GOTO:kickout
+	A: No
+		Q(5.3.2):GOTO:eligible
+A: 4
+	Q(5.4): Do you have a household income of more than $39,300?
+	A: Yes
+		Q(5.4.1):GOTO:kickout
+	A: No
+		Q(5.4.2):GOTO:eligible
+A: 5
+	Q(5.5): Do you have a household income of more than $46,020?
+	A: Yes
+		Q(5.5.1):GOTO:kickout
+	A: No
+		Q(5.5.2):GOTO:eligible
+A: 6
+	Q(5.6): Do you have a household income of more than $52,740?
+	A: Yes
+		Q(5.6.1):GOTO:kickout
+	A: No
+		Q(5.6.2):GOTO:eligible
+A: 7
+	Q(5.7): Do you have a household income of more than $59,460?
+	A: Yes
+		Q(5.7.1):GOTO:kickout
+	A: No
+		Q(5.7.2):GOTO:eligible
+A: 8
+	Q(5.8): Do you have a household income of more than $66,180?
+	A: Yes
+		Q(5.8.1):GOTO:kickout
+	A: No
+		Q(5.8.2):GOTO:eligible
+
+Q(misdemeanorfamily): How many family members are you in your household?
+A: 1
+	Q(6.1): Do you have a household income of more than $12,760?
+	A: Yes
+		Q(6.1.1):GOTO:kickout
+	A: No
+		Q(6.1.2):GOTO:eligible
+A: 2
+	Q(6.2): Do you have a household income of more than $17,240?
+	A: Yes
+		Q(6.2.1):GOTO:kickout
+	A: No
+		Q(6.2.2):GOTO:eligible
+A: 3
+	Q(6.3): Do you have a household income of more than $21,720?
+	A: Yes
+		Q(6.3.1):GOTO:kickout
+	A: No
+		Q(6.3.2):GOTO:eligible
+A: 4
+	Q(6.4): Do you have a household income of more than $26,200?
+	A: Yes
+		Q(6.4.1):GOTO:kickout
+	A: No
+		Q(6.4.2):GOTO:eligible
+A: 5
+	Q(6.5): Do you have a household income of more than $30,670?
+	A: Yes
+		Q(6.5.1):GOTO:kickout
+	A: No
+		Q(6.5.2):GOTO:eligible
+A: 6
+	Q(6.6): Do you have a household income of more than $35,160?
+	A: Yes
+		Q(6.6.1):GOTO:kickout
+	A: No
+		Q(6.6.2):GOTO:eligible
+A: 7
+	Q(6.7): Do you have a household income of more than $39,640?
+	A: Yes
+		Q(6.7.1):GOTO:kickout
+	A: No
+		Q(6.7.2):GOTO:eligible
+A: 8
+	Q(6.8): Do you have a household income of more than $44,120?
+	A: Yes
+		Q(6.8.1):GOTO:kickout
+	A: No
+		Q(6.8.2):GOTO:eligible
+
+Q(eligible): You are eligible for indigent defense in Georgia
