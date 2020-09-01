@@ -1,0 +1,65 @@
+Title: Georgia State Indigency Eligibility Calculator
+Author: Michael Cronin
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://suffolklitlab.org/howto/qna/images/maxheadroom.gif');"></div>
+<h2 style="text-align:center;">Georgia State Indigency Eligibility Calculator</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/level/2/#mission_p1">class project</a>. You should not rely on it as a source of legal information!</b></p>
+<p>Answer the following questions to see if you qualify for appointed counsel in Georgia.</p>
+
+After:
+<script>
+function fedpov(house,income,percentage){
+	// Determines if your income is less than or equal to
+	// a percentage of the 2020 federal poverty guidelines
+	// for the contiguous United States. See
+	// https://aspe.hhs.gov/poverty-guidelines
+
+		var line = NaN;
+
+		if (house == 1) {
+			line = 12760;
+		} else if (house == 2) {
+			line = 17240;
+		} else if (house == 3) {
+			line = 21720;
+		} else if (house == 4) {
+			line = 26200;
+		} else if (house == 5) {
+			line = 30680;
+		} else if (house == 6) {
+			line = 35160;
+		} else if (house == 7) {
+			line = 39640;
+		} else if (house == 8) {
+			line = 44120;
+		} else if (house > 8) {
+			line = 44120 + (house-8)*4480;
+		}
+
+		if (income <= (line*(percentage/100))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+Q(residency): This is an interview to determine your eligibility for indigent defense in the State of Georgia.
+	Are you currently a resident of the State of Georgia?
+A:Yes
+	Q(1.1):GOTO:family
+A:No
+	Q(1.2):GOTO:kickout
+
+Q(kickout): You are NOT eligible for indigent defense in the State of Georgia
+
+Q(family):How many family members are in your household?
+X:number
+	Q(income): What is your annual household income?
+	X:number
+		Q(3.1.1): Where you charged with a misdemeanor or felony?
+		A[javascript:if (fedpov(getvar('family'),getvar('income'),100)){ goto('eligible') } else { goto('kickout') } ]: Misdemeanor
+		A[javascript:if (fedpov(getvar('family'),getvar('income'),150)){ goto('eligible') } else { goto('kickout') } ]: Felony
+
+Q(eligible): You are eligible for indigent defense in the State of Georgia
+
